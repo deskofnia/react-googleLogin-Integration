@@ -6,13 +6,19 @@ const clientId = '28465246509-hsdbi1asi067ifu54cqme55fum8sn0hv.apps.googleuserco
 
 function Login(){
     const onSuccess = (res) => {
-        console.log('[Login Success] currentuser:', res.profileObj);
-
+        console.log('Login Success: currentUser:', res.profileObj);
+        alert(
+          `Logged in successfully welcome ${res.profileObj.name} 😍. \n See console for full profile object.`
+        );
         refreshTokenSetup(res);
     };
+    
     const onFailure = (res) => {
-        console.log('[Login failed] res:', res);
-    }
+        console.log('Login failed: res:', res);
+        alert(
+          `Failed to login. 😢`
+        );
+    };
 
     return (
         <div>
